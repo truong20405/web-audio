@@ -1,0 +1,6 @@
+Flask
+flask_caching
+pytubefix
+google-api-python-client
+pyngrok
+gunicorn

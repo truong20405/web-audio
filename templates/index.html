@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optimized YouTube Search</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #6200ea;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 900px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .search-bar input[type="text"] {
+            width: 70%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+
+        .search-bar button {
+            background-color: #6200ea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .search-bar button:hover {
+            background-color: #4500b5;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            background: #fafafa;
+            padding: 10px;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-thumbnail img {
+            border-radius: 6px;
+            width: 120px;
+        }
+
+        .video-info {
+            margin-left: 15px;
+        }
+
+        .video-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #6200ea;
+        }
+
+        .video-title:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+            background-color: #6200ea;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Optimized YouTube Search</h1>
+    </header>
+    <main>
+        <form class="search-bar" method="POST">
+            <input type="text" name="query" placeholder="Search YouTube videos..." required>
+            <button type="submit"><i class="fas fa-search"></i> Search</button>
+        </form>
+        <hr>
+        {% if videos %}
+            <h2>Search Results:</h2>
+            <ul>
+            {% for video in videos %}
+                <li>
+                    <img src="{{ video.thumbnail }}" alt="{{ video.title }}">
+                    <div class="video-info">
+                        <a class="video-title" href="/play/{{ video.id }}?mode=audio">{{ video.title }}</a>
+                        <p>Channel: {{ video.channel }}</p>
+                    </div>
+                </li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    </main>
+    <footer>
+        <p>&copy; 2025 Optimized YouTube Search</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
