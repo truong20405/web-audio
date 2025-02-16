@@ -1,6 +1,6 @@
-Flask
-flask_caching
-pytubefix
-google-api-python-client
-pyngrok
-gunicorn
+flask 
+flask-caching 
+yt-dlp 
+google-api-python-client 
+pyngrok 
+circuitbreaker
