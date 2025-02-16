@@ -4,3 +4,4 @@ yt-dlp
 google-api-python-client 
 pyngrok 
 circuitbreaker
+gunicorn
